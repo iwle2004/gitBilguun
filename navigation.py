@@ -58,8 +58,12 @@ points = [(el["lat"], el["lon"]) for el in data["elements"]]
 start_point = (35.46872450002604, 135.39500977773056)
 end_point = (35.474763476187924, 135.38536802589823)
 
-client = openrouteservice.Client(key="5b3ce3597851110001cf6248b9ea1dfdfdb7416eb962ef2ad2bd129e")
+ORS_API_KEY = os.environ.get("ORS_API_KEY")
+if not ORS_API_KEY:
+    print("Error: ORS_API_KEY environment variable not set. Please set it in Render or your local .env file.")
+    sys.exit(1)
 
+client = openrouteservice.Client(key=ORS_API_KEY)
 coords = [tuple(reversed(start_point))]
 coords.extend([tuple(reversed(p)) for p in points])
 coords.append(tuple(reversed(end_point)))
