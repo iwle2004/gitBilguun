@@ -90,8 +90,7 @@ if route_coords:
     route_latlon = [(lat, lon) for lon, lat in route_coords]
     folium.PolyLine(route_latlon, color="blue", weight=4, opacity=0.7).add_to(m)
 
-# ---- 5. Save to public/maps ----
-output_dir = os.path.join(os.path.dirname(__file__), "../public/maps")
+output_dir = os.path.join(os.path.dirname(__file__), "")
 os.makedirs(output_dir, exist_ok=True)
 
 output_path = os.path.join(output_dir, "maizuru_full_tsp_route.html")
