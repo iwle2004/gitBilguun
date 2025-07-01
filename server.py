@@ -6,7 +6,7 @@ from flask_cors import CORS
 import subprocess
 
 app = Flask(__name__)
-CORS(app, origins=["https://e-bike-dun.vercel.app"])
+CORS(app, origins=["https://e-bike-dun.vercel.app", "http://localhost:3000"])
 
 @app.route("/run-navigation", methods=["POST"])
 def run_navigation():
